@@ -17,8 +17,8 @@ class CreateNoterTable extends Migration
             $table->increments('codeAvis');
             $table->string('commentaire',75);
             $table->string('note',1);
-            $table->integer('idClient')->unsigned();
-            $table->foreign('idClient')->references('idClient')->on('client');
+            $table->integer('idUtilisateur')->unsigned();
+            $table->foreign('idUtilisateur')->references('idUtilisateur')->on('utilisateur');
             $table->integer('idPromotion')->unsigned();
             $table->foreign('idPromotion')->references('idPromotion')->on('promotion');
 

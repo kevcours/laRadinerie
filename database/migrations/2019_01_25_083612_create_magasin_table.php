@@ -29,8 +29,8 @@ class CreateMagasinTable extends Migration
             $table->foreign('idType')->references('idType')->on('type');
             $table->integer('idville')->unsigned();
             $table->foreign('idville')->references('idville')->on('ville');
-            $table->integer('idResponsable')->unsigned();
-            $table->foreign('idResponsable')->references('idResponsable')->on('responsable');
+            $table->integer('idUtilisateur')->unsigned();
+            $table->foreign('idUtilisateur')->references('idUtilisateur')->on('utilisateurs');
 
             $table->timestamps();
         });

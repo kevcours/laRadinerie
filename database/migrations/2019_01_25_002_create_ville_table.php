@@ -16,7 +16,9 @@ class CreateVilleTable extends Migration
         Schema::create('ville', function (Blueprint $table) {
             $table->increments('idville');
             $table->string('cp',5);
-            $table->string('name');
+            $table->string('nom');
+            $table->string('longitude');
+            $table->string('latitude');
             $table->timestamps();
         });
     }
