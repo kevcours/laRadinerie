@@ -25,7 +25,6 @@ class CreateUtilisateursTable extends Migration
             $table->enum('role', ['client', 'responsable', 'admin'])->default('client');
             $table->integer('idville')->unsigned();
             $table->foreign('idville')->references('idville')->on('ville');
-            $table->boolean('displayed')->default(0)->change();
             $table->timestamps();
         });
     }
