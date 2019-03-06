@@ -22,6 +22,7 @@ class CreateUtilisateursTable extends Migration
             $table->string('mailUtilisateur',45);
             $table->string('mdpUtilisateur',45);
             $table->string('adresseUtilisateur',45);
+            $table->enum('role', ['client', 'responsable', 'admin'])->default('client');
             $table->integer('idville')->unsigned();
             $table->foreign('idville')->references('idville')->on('ville');
             $table->boolean('displayed')->default(0)->change();
