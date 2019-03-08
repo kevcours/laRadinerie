@@ -24,27 +24,28 @@
            Contactez-nous !
         </a>
       </li>
-      @Guest
+      <?php if(auth()->guard()->guest()): ?>
         <li class="nav-item">
           <a class="nav-link" href="#" onclick="inscriptRegister()">
             <i >  Connexion / inscription </i>
           </a>
         </li>
-      @else
+      <?php else: ?>
         <li class="nav-item menuElem">
           <a class="nav-link" href="monEspace">
             <i >  Mon espace </i>
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('logout') }}"
+          <a href="<?php echo e(route('logout')); ?>"
                            onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();"><img src="/img/logout.png" alt="Deconnexion"></a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                            <?php echo e(csrf_field()); ?>
+
                         </form>
         </li>
-      @endGuest
+      <?php endif; ?>
 
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"

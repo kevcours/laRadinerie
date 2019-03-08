@@ -19,31 +19,41 @@
             <div id="login"class="card-body px-lg-5 pt-0">
 
                 <!-- Form -->
-                <form class="text-center" style="color: #757575;">
-
+                <form class="text-center" style="color: #757575;" action="{{route('login')}}" method='POST'>
+                {{ csrf_field() }}
                 <!-- Email -->
-                <div class="md-form">
-                    <input type="email" id="materialLoginFormEmail" class="form-control">
+                <div class="md-form form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <input name="mailUtilisateur" type="email" id="mailUtilisateur" class="form-control" required autofocus>
                     <label for="materialLoginFormEmail">E-mail</label>
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
 
                 <!-- Password -->
-                <div class="md-form">
-                    <input type="password" id="materialLoginFormPassword" class="form-control">
+                <div class="md-form form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <input name="password" type="password" id="password" class="form-control" required>
                     <label for="materialLoginFormPassword">Mot de passe</label>
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                 </div>
 
                 <div class="d-flex justify-content-around">
                     <div>
                     <!-- Remember me -->
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+                        <input type="checkbox" class="form-check-input" id="materialLoginFormRemember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="form-check-label" for="materialLoginFormRemember">Se souvenir de moi</label>
                     </div>
                     </div>
                     <div>
                     <!-- Forgot password -->
-                    <a href="">Mot de passe oublié?</a>
+                    <a href="{{ route('password.request') }}">Mot de passe oublié?</a>
                     </div>
                 </div>
 
@@ -71,20 +81,20 @@
             <div id="register" class="card-body px-lg-5 pt-0 vanish">
 
             <!-- Form -->
-                <form class="text-center" style="color: #757575;">
-
+                <form class="text-center" style="color: #757575;" action="{{route('register')}}" method='POST'>
+                {{ csrf_field() }}
                     <div class="form-row">
                         <div class="col">
                             <!-- First name -->
                             <div class="md-form">
-                                <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                                <input name="prenomInsc" type="text" id="prenomInsc" class="form-control">
                                 <label for="materialRegisterFormFirstName">Prénom</label>
                             </div>
                         </div>
                         <div class="col">
                             <!-- Last name -->
                             <div class="md-form">
-                                <input type="text" id="materialRegisterFormLastName" class="form-control">
+                                <input name="nomInsc" type="text" id="nomInsc" class="form-control">
                                 <label for="materialRegisterFormLastName">Nom</label>
                             </div>
                         </div>
@@ -92,20 +102,20 @@
 
                     <!-- E-mail -->
                     <div class="md-form mt-0">
-                        <input type="email" id="materialRegisterFormEmail" class="form-control">
+                        <input name="mailUtilisateur" type="email" id="mailUtilisateur" class="form-control">
                         <label for="materialRegisterFormEmail">E-mail</label>
                     </div>
 
                     <!-- Password -->
                     <div class="md-form">
-                        <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                        <input name="passwordInsc" type="password" id="passwordInsc" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
                         <label for="materialRegisterFormPassword">Mot de passe</label>
                         <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                         </small>
                     </div>
                     <!-- role -->
                     <div class="md-form">
-                        <select id="role" class="green" aria-describedby="role">
+                        <select id="role" name="role" class="green" aria-describedby="role">
                             <option value="client">Client</option>
                             <option value="responsable">Responsable</option>
                         </select>
@@ -113,7 +123,7 @@
 
                     <!-- Newsletter -->
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                        <input type="checkbox" name="Newsletter" class="form-check-input" id="Newsletter">
                         <label class="form-check-label" for="materialRegisterFormNewsletter">Abonnez vous a nos newsletter !</label>
                     </div>
 

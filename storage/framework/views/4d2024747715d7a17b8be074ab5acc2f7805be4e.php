@@ -43,7 +43,6 @@
             
         </div>
         <div class=" miniMap" id="map">
-
         </div>
     </div>
 </div>

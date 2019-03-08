@@ -10,10 +10,10 @@
     if (isset($_GET['ville'])&& ($_GET['ville']!=""))
     {
         $rechercheVille = $_GET['ville'] . "%";
-        $query = $bdd->query("Select DISTINCT name from ville WHERE name LIKE '$rechercheVille' LIMIT 5 ");
+        $query = $bdd->query("Select DISTINCT nom from ville WHERE nom LIKE '$rechercheVille' LIMIT 5 ");
         $villes = array();
         while ($ville = $query->fetch()){
-            array_push($villes, array("ville" => $ville["name"]));
+            array_push($villes, array("ville" => $ville["nom"]));
         }
 
         echo(json_encode($villes));

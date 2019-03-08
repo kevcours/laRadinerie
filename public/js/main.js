@@ -103,7 +103,35 @@ if (document.getElementById('map'))
          var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
          map.setView([latitude, longitude], 15);
          map.addLayer(osm);
+        
+        /* L.marker([44.563972,6.093542]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.').openPopup();
+         console.log(map.getBounds().getNorthEast().lat);
+         console.log(map.getBounds().getNorthEast().lng);
+         console.log(map.getBounds().getSouthWest().lat);
+         console.log(map.getBounds().getSouthWest().lng);*/
+         marquerMap(map);
     }
+
+
+}
+
+/* recuperation de la map et affichage des points*/
+
+function marquerMap(map){
+
+    let longitudeMin=map.getBounds().getSouthWest().lng;
+    let longitudeMax=map.getBounds().getNorthEast().lng;
+    let latitudeMin=map.getBounds().getSouthWest().lat;
+    let latitudeMax=map.getBounds().getNorthEast().lat;
+
+    /*axios.get('/resultat.php')*/
+    
+
+
+
+
+    
+
 
 
 }
@@ -119,6 +147,7 @@ function keyupVille(value)
 
     axios.get('/resultat.php?ville='+value)
     .then(function (response) {  
+        console.log(response.data);
        let input=document.getElementById('ville');
        input.innerHTML="";
        for(i=0 ;i<response.data.length ; i++)

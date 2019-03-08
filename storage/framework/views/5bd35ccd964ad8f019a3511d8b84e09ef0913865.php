@@ -23,28 +23,38 @@
                 <?php echo e(csrf_field()); ?>
 
                 <!-- Email -->
-                <div class="md-form">
-                    <input name="mailCnx" type="email" id="mailCnx" class="form-control">
+                <div class="md-form form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
+                    <input name="mailUtilisateur" type="email" id="mailUtilisateur" class="form-control" required autofocus>
                     <label for="materialLoginFormEmail">E-mail</label>
+                    <?php if($errors->has('email')): ?>
+                        <span class="help-block">
+                            <strong><?php echo e($errors->first('email')); ?></strong>
+                        </span>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Password -->
-                <div class="md-form">
-                    <input name="passwordCnx" type="password" id="passwordCnx" class="form-control">
+                <div class="md-form form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
+                    <input name="password" type="password" id="password" class="form-control" required>
                     <label for="materialLoginFormPassword">Mot de passe</label>
+                    <?php if($errors->has('password')): ?>
+                        <span class="help-block">
+                            <strong><?php echo e($errors->first('password')); ?></strong>
+                        </span>
+                    <?php endif; ?>
                 </div>
 
                 <div class="d-flex justify-content-around">
                     <div>
                     <!-- Remember me -->
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+                        <input type="checkbox" class="form-check-input" id="materialLoginFormRemember" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
                         <label class="form-check-label" for="materialLoginFormRemember">Se souvenir de moi</label>
                     </div>
                     </div>
                     <div>
                     <!-- Forgot password -->
-                    <a href="">Mot de passe oublié?</a>
+                    <a href="<?php echo e(route('password.request')); ?>">Mot de passe oublié?</a>
                     </div>
                 </div>
 

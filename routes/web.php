@@ -27,4 +27,3 @@ Route::get('/carte',function(){
     return view('carte');
 });
 
-
