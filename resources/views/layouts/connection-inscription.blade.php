@@ -19,7 +19,7 @@
             <div id="login"class="card-body px-lg-5 pt-0">
 
                 <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="{{route('login')}}" method='POST'>
+                <form class="text-center" style="color: #757575;">
 
                 <!-- Email -->
                 <div class="md-form">
@@ -71,7 +71,7 @@
             <div id="register" class="card-body px-lg-5 pt-0 vanish">
 
             <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="{{route('register')}}" method='POST'>
+                <form class="text-center" style="color: #757575;">
 
                     <div class="form-row">
                         <div class="col">
