@@ -16,6 +16,15 @@ class User extends Authenticatable
         return $this->mdpUtilisateur;
     }
 
+    /* Si user est admin */
+
+    const ADMIN_TYPE = 'admin';
+    const DEFAULT_TYPE = 'client';
+
+    public function isAdmin()    {        
+        return $this->type === self::ADMIN_TYPE;    
+    }
+
     protected $fillable = [
         'prenomUtilisateur','nomUtilisateur', 'mailUtilisateur', 'mdpUtilisateur','role','newsletter',
     ];

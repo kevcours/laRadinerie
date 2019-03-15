@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'nomUtilisateur' => $data['nomInsc'],
             'mailUtilisateur' => $data['mailUtilisateur'],
             'mdpUtilisateur' => bcrypt($data['passwordInsc']),
-            'role' => $data['role'],
+            'role' => User::DEFAULT_TYPE,
             'newsletter' =>isset($data['Newsletter'])?1:0,
         ]);
     }

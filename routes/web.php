@@ -27,3 +27,7 @@ Route::get('/carte',function(){
     return view('carte');
 });
 
+Route::get('/admin', 'AdminController@admin')    
+    ->middleware('is_admin')    
+    ->name('admin');
+

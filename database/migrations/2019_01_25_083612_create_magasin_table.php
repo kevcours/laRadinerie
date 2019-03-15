@@ -30,7 +30,7 @@ class CreateMagasinTable extends Migration
             $table->integer('idville')->unsigned();
             $table->foreign('idville')->references('idville')->on('ville');
             $table->integer('idUtilisateur')->unsigned();
-            $table->foreign('idUtilisateur')->references('idUtilisateur')->on('utilisateurs');
+            $table->foreign('idUtilisateur')->references('idUtilisateur')->on('users');
 
             $table->timestamps();
         });
